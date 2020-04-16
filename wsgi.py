@@ -10,5 +10,10 @@ from CTFd import create_app
 
 app = create_app()
 
+port=os.environ.get("PORT")
+
+if port is None or port == "":
+    port = 4000
+
 if __name__ == "__main__":
-    app.run(debug=True, threaded=True, host="0.0.0.0", port=4000) # Changed host=127.0.0.1 | Changing this didn't change the actual port
+    app.run(debug=True, threaded=True, host="0.0.0.0", port=port) # Changed host=127.0.0.1 | Changing this didn't change the actual port
