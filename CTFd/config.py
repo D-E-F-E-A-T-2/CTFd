@@ -2,7 +2,7 @@ import os
 
 """ GENERATE SECRET KEY """
 
-if not os.getenv("SECRET_KEY"):
+if not os.getenv("SECRET_KEY"): # I have set this
     # Attempt to read the secret from the secret file
     # This will fail if the secret has not been written
     try:
@@ -63,9 +63,11 @@ class Config(object):
         http://pythonhosted.org/Flask-Caching/#configuring-flask-caching
     """
     SECRET_KEY = os.getenv("SECRET_KEY") or key
+    # Database url is also set
     DATABASE_URL = os.getenv("DATABASE_URL") or "sqlite:///{}/ctfd.db".format(
         os.path.dirname(os.path.abspath(__file__))
     )
+    # This is also Set
     REDIS_URL = os.getenv("REDIS_URL")
 
     SQLALCHEMY_DATABASE_URI = DATABASE_URL
